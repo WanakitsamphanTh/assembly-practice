@@ -1,15 +1,14 @@
 section .data
 section .bss
-    buflen resq 1       ; buflen: 1 quarter word (8 bytes)
-    buffer resb 256
-    i      resq 1
-    j      resq 1
+    x   resq 1
+    buffer resb 16
+    buflen resq 1
 
 section .text
-    global  _start
+    global _start
 
 _start:
-    ;scan interger i
+    ;scan interger x
     mov r8, buffer       ; move buffer to pointer to r8
     call scan_str 
     mov [buflen], r9     ; store length (r9) in buflen
@@ -18,26 +17,11 @@ _start:
     lea r8, [rel buffer]
     mov r9, [buflen]
     call convert_str_to_int64
-    mov [i], rax
+    mov [x], rax
 
-    ;scan interger j
-    mov r8, buffer       ; move buffer to pointer to r8
-    call scan_str 
-    mov [buflen], r9     ; store length (r9) in buflen
-
-    ; conversion
-    lea r8, [rel buffer]
-    mov r9, [buflen]
-    call convert_str_to_int64
-    mov [j], rax
-
-    ; i <- i * j
-    mov rax, [i]
-    imul rax, [j]           
-    mov [i], rax
-
-    ; lea r8, [rel buffer]
-    mov rax, [i]
+    ; rax <- fib(r9 <- x)
+    mov r9, [x]
+    call fibonucci
     call print_number
 
     ; print new line
@@ -48,6 +32,21 @@ _start:
     mov rax, 60
     xor rdi, rdi
     syscall
+
+fibonucci:          ; r9 for parameter
+    cmp r9, 0
+    je f_0          ; if r9 == 0
+    push rbx
+    push r9         ; push r9 on stack
+    sub r9, 1       ; r9 <- r9 - 1
+    call fibonucci  ; returns in rax
+    pop rbx         ; pop saved r9 into rbx
+    mul rax, rbx
+    pop rbx
+    ret
+    f_0:
+        mov rax, 1
+        ret
 
 scan_str: ; requires r8 = ptr to msg_str
     push rax
