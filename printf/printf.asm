@@ -10,8 +10,7 @@ section .text
     ;   push arg_1
     ;   lea r9, [rel msg]
     ;   call printf
-    ; return starting point in rax
-    ;   mov rsp, rax
+    ; return number printed in rax
     
 printf:
     ; fmt string pointer in r9
