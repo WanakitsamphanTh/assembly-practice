@@ -1,7 +1,8 @@
 # Sys V x86 assembly
 - [X] scan and print number (scan-and-read, multiply)
 - [X] function call (fibonucci)
-- [X] array sort (insertion-sort)
+- [X] array (insertion-sort, min-max)
+- [X] cmd arguments (calc)
 - [ ] simple printf
 
 ## System V x86 64 summary
