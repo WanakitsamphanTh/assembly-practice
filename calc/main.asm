@@ -89,6 +89,7 @@ _start:
     .div_zero:
     mov rdi, div_zero_msg
     call str_print
+    jmp .done
     
     .print_result:
     mov rax, rbx

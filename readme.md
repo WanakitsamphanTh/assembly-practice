@@ -2,7 +2,8 @@
 - [X] scan and print number (scan-and-read, multiply)
 - [X] function call (fibonucci)
 - [X] array (insertion-sort, min-max)
-- [X] cmd arguments (calc)
+- [X] cmd arguments (calc, cat)
+- [X] files (cat)
 - [ ] simple printf
 
 ## System V x86 64 summary
