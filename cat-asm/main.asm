@@ -23,7 +23,7 @@ _start:
     syscall
 
     cmp rax, 0
-    jl .open_file_error
+    jle .open_file_error
 
     mov [fd], rax   ; file descriptor
 
@@ -82,7 +82,8 @@ fread:      ; rdi = file descriptor, rsi = buffer, rdx = buffer size
     mov [rsi + rax], 0
     
     .done:
-    ret
+    rets
+
 
 str_print:
     push rbx
