@@ -4,6 +4,7 @@
 - [X] array (insertion-sort, min-max)
 - [X] cmd arguments (calc, cat, brainfuck)
 - [X] files (cat, brainfuck)
+- [X] memory management (arena)
 - [ ] simple printf
 - [ ] network (echo server)
 
