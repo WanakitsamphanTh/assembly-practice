@@ -29,3 +29,18 @@
 | rdx:rax | stores return value 64 - 128 bits |
 | rdi | stores pointer to return value larger than 128 bits |
 1. If the return value does not fit in rdx:rax, the function allocates a storage space and return the pointer in rdi, as well as in rax
+
+## LIBC
+1. `main` instead of `_start`
+2. `argc` in rdi, `argv` in rsi
+3. Variadic functions need stack to be 16-byte aligned
+    | parameter | register |
+    | - | - |
+    | 1st integer | rdi |
+    | 2nd integer | rsi |
+    | 3rd integer | rdx |
+    | 4rd integer | rcx |
+    | 5rd integer | r8 |
+    | 6rd integer | r9 |
+    | floating point | xmm0 - xmm7 |
+    | others | on stack |
