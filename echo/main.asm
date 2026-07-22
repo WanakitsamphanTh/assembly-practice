@@ -65,7 +65,6 @@ section .text
     extern stderr
     extern atoi
     extern htonl
-    extern inet_pton
     extern inet_addr
 main:
     push r12            ; 8-byte
