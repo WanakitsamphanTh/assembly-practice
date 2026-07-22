@@ -1,8 +1,8 @@
 section .bss
-    tape resq
-    tape_break resq
-    tape_end resq
-    size resq
+    tape resq 1
+    tape_break resq 1
+    tape_end resq 1
+    size resq 1
 section .text
     global init_allocator
     global allocate

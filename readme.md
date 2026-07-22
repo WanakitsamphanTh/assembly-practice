@@ -5,8 +5,7 @@
 - [X] cmd arguments (calc, cat, brainfuck)
 - [X] files (cat, brainfuck)
 - [X] memory management (arena)
-- [ ] simple printf
-- [ ] network (echo server)
+- [X] network (echo server)
 
 ## System V x86 64 summary
 
