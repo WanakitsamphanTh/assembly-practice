@@ -53,7 +53,6 @@ section .data
 section .bss
     mode resb 1
     port resq 1
-    ip_address resw 1
     buffer resb 256
 
 section .text
@@ -257,7 +256,7 @@ main:
 
 .continue_accept:
     mov rax, 3      ; sys_close
-    mov rdi, cli_fd
+    mov rdi, qword [cli_fd]
     syscall
 
     lea rdi, [server_close_cli_socket_msg]
